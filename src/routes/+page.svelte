@@ -16,8 +16,8 @@
   onMount(() => {
     const interval = setInterval(() => {
       fetch(
-        // "https://statsapi.web.nhl.com/api/v1/schedule?expand=schedule.linescore"
-        "https://statsapi.web.nhl.com/api/v1/schedule?date=2022-12-4&expand=schedule.linescore"
+        "https://statsapi.web.nhl.com/api/v1/schedule?expand=schedule.linescore"
+        // "https://statsapi.web.nhl.com/api/v1/schedule?date=2022-12-4&expand=schedule.linescore"
       )
         .then((res) => res.json())
         .then((json) => {
