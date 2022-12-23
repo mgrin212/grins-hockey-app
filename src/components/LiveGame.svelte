@@ -54,11 +54,11 @@
 						</div>
 						<div class="h-[20px] ml-1"
 							><span class="font-bold">{play.players[0].player.fullName + '.'}</span>
-							{#if play.players[1] && !play.players[2]}
+							{#if play.players[1] && !play.players[2] && play.players[1].playerType === 'Assist'}
 								Assists: <span class=" font-semibold"
 									>{play.players[1].player.fullName}</span
 								>{/if}
-							{#if play.players[2] && play.players[2].player && play.players[1].player}
+							{#if play.players[2] && play.players[2].player && play.players[1].player && play.players[2].playerType === 'Assist' && play.players[1].playerType === 'Assist'}
 								Assists:
 								<span class="font-semibold"
 									>{play.players[1].player.fullName +
