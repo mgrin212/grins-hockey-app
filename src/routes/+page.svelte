@@ -1,36 +1,57 @@
 <script lang="ts">
-  import Scoreboard from "../components/Scoreboard.svelte";
-  import type { Root } from "src/types/hockey-types";
   import { onMount } from "svelte";
-  let dataRoot: Root;
-  $: data = dataRoot;
+  import * as GH from "../util/GoalCardHandler";
+  import {
+    scoreboardProps,
+    type LineScoreLive,
+    type ScoreboardProps,
+  } from "../util/GameHandlers";
+  import * as O from "fp-ts/Option";
+  import FuncScoreboard from "../components/FuncScoreboard.svelte";
 
-  fetch(
-    "https://statsapi.web.nhl.com/api/v1/schedule?expand=schedule.linescore"
-  )
-    .then((res) => res.json())
-    .then((json) => {
-      dataRoot = json;
-    });
+  let pl: ScoreboardProps[] = [];
+  let propsList = pl;
 
+  setup();
+  function setup() {
+    fetch(
+      "https://statsapi.web.nhl.com/api/v1/schedule?expand=schedule.linescore"
+      // "https://statsapi.web.nhl.com/api/v1/schedule?date=2022-12-4&expand=schedule.linescore"
+    )
+      .then((res) => res.json())
+      .then((json) => {
+        return json.dates[0]?.games.map((game: any) =>
+          game.link.toString()
+        ) as string[];
+      })
+      .then((links) => {
+        return links.map(async (link) => await getGame(link));
+      })
+      .then((list) => {
+        Promise.all(list).then((values) => {
+          propsList = values;
+        });
+      });
+  }
+
+  async function getGame(link: string) {
+    const response = await fetch("https://statsapi.web.nhl.com" + link).then();
+    const datawait = response.json();
+    let data = await datawait;
+    const lineScore = data.liveData.linescore as LineScoreLive;
+    const goalProps = GH.getAllGoalProps(data.liveData.plays);
+    const dateTime = data.gameData.datetime.dateTime;
+    return scoreboardProps(O.fromNullable(lineScore), goalProps, dateTime);
+  }
   onMount(() => {
     const interval = setInterval(() => {
-      fetch(
-        "https://statsapi.web.nhl.com/api/v1/schedule?expand=schedule.linescore"
-        // "https://statsapi.web.nhl.com/api/v1/schedule?date=2022-12-4&expand=schedule.linescore"
-      )
-        .then((res) => res.json())
-        .then((json) => {
-          dataRoot = json;
-        });
+      setup();
     }, 1000);
 
     return () => {
       clearInterval(interval);
     };
   });
-
-  let hideScroll = true;
 </script>
 
 <div
@@ -42,14 +63,9 @@
   >
     Todays Games
   </h2>
-  {#if data}
-    {#each data.dates as date}
-      {#each date.games as game}
-        <Scoreboard {game} />
-        <!-- <LiveGame gameCode="{game.gamePk.toString()}" /> -->
-      {/each}
-    {/each}
-  {/if}
+  {#each propsList as scoreProps}
+    <FuncScoreboard {scoreProps} />
+  {/each}
 
   <!-- End: Top Projects -->
 </div>

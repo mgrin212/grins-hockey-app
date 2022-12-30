@@ -36,6 +36,7 @@
   "dependencies": {
     "@tailwindcss/typography": "tailwindcss/typography",
     "firebase": "^9.15.0",
+    "fp-ts": "^2.13.1",
     "tailwind-scrollbar-hide": "^1.1.7"
   }
 }

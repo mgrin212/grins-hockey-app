@@ -76,6 +76,5 @@
 
 <div class="scroll-hide w-full">
 	{#if clicked && game.status.detailedState !== 'Scheduled' && game.status.detailedState !== 'Pre-Game'}
-		<LiveGame gameCode="{game.gamePk.toString()}" />
 	{/if}
 </div>
