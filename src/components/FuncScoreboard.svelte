@@ -1,7 +1,7 @@
 <script lang="ts">
   import type * as GH from "src/util/GameHandlers";
   import type * as GC from "src/util/GoalCardHandler";
-  import type * as O from "fp-ts/Option";
+  import type * as O from "fp-ts/lib/Option.js";
   import LiveGame from "./LiveGame.svelte";
 
   export let scoreProps: GH.ScoreboardProps;

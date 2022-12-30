@@ -1,4 +1,4 @@
-import * as O from "fp-ts/Option";
+import * as O from "fp-ts/lib/Option.js";
 import { pipe } from "fp-ts/lib/function";
 import type { DisplayGoal } from "./GoalCardHandler";
 

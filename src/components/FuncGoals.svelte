@@ -1,9 +1,8 @@
 <script lang="ts">
   import type { DisplayGoal } from "src/util/GoalCardHandler";
-  import type * as O from "fp-ts/Option";
-
+  import type * as O from "fp-ts/lib/Option.js";
   export let props: DisplayGoal;
-  console.log(props)
+  console.log(props);
 
   function display(option: O.Option<any>): string {
     return option._tag === "None" ? null : option.value;
@@ -22,16 +21,11 @@
   <div class="h-[20px] ml-1">
     <span class="font-bold">{display(props.goalScorer) + "."}</span>
     {#if props.assist1 && !props.assist2}
-      Assists: <span class=" font-semibold"
-        >{display(props.assist1)}</span
-      >{/if}
+      Assists: <span class=" font-semibold">{display(props.assist1)}</span>{/if}
     {#if props.assist1 && props.assist2}
       Assists:
       <span class="font-semibold"
-        >{display(props.assist1) +
-          ", " +
-          display(props.assist2) +
-          "."}</span
+        >{display(props.assist1) + ", " + display(props.assist2) + "."}</span
       >
     {/if}
 
