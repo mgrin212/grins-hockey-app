@@ -75,7 +75,7 @@
               alt={display(scoreProps.home)}
             />
             <p class="s">{display(scoreProps.home)}</p>
-            <p class="mt-2 text-gray-500 ml-2 mb-2 text-sm">{display(scoreProps.awayShots)} SOG</p>
+            <p class="mt-2 text-gray-500 ml-2 mb-2 text-sm">{display(scoreProps.homeShots)} SOG</p>
           </div>
         </div>
         <div class="text-4xl">

@@ -2,7 +2,6 @@
   import type { DisplayGoal } from "src/util/GoalCardHandler";
   import type * as O from "fp-ts/lib/Option.js";
   export let props: DisplayGoal;
-  console.log(props);
 
   function display(option: O.Option<any>): string {
     return option._tag === "None" ? null : option.value;

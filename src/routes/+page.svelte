@@ -8,11 +8,12 @@
   } from "../util/GameHandlers";
   import * as O from "fp-ts/lib/Option.js";
   import FuncScoreboard from "../components/FuncScoreboard.svelte";
+  import { load } from "./+page";
 
   let pl: ScoreboardProps[] = [];
-  let propsList = pl;
+  export let data: {props: ScoreboardProps[]}
+  $: propsList = data.props
 
-  setup();
   function setup() {
     fetch(
       "https://statsapi.web.nhl.com/api/v1/schedule?expand=schedule.linescore"
@@ -45,7 +46,10 @@
   }
   onMount(() => {
     const interval = setInterval(() => {
-      setup();
+      // setup();
+      load().then((data) => {
+        propsList = data.props;
+      });
     }, 10000);
 
     return () => {
