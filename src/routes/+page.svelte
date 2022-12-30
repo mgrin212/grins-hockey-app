@@ -46,7 +46,7 @@
   onMount(() => {
     const interval = setInterval(() => {
       setup();
-    }, 1000);
+    }, 10000);
 
     return () => {
       clearInterval(interval);

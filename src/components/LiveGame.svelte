@@ -1,6 +1,4 @@
 <script lang="ts">
-  import type { Root } from "../types/live-types";
-  import { get_root_for_style, onMount } from "svelte/internal";
   import FuncGoals from "./FuncGoals.svelte";
   import type { DisplayGoal } from "src/util/GoalCardHandler";
   import type * as O from "fp-ts/lib/Option.js";
