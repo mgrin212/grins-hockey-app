@@ -55,7 +55,7 @@
 </script>
 
 <div
-  class="flex flex-col justify-center items-start w-[430px] mx-auto mt-2 bg-white dark:bg-black hideScroll"
+  class="flex flex-col justify-center items-start md:w-[390px] w-full mx-auto mt-2 bg-white dark:bg-black hideScroll"
 >
   <!-- Start: Popular Blog Section -->
   <h2
