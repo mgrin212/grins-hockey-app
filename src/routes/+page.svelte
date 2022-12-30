@@ -6,7 +6,7 @@
     type LineScoreLive,
     type ScoreboardProps,
   } from "../util/GameHandlers";
-  import * as O from "fp-ts/Option";
+  import * as O from "fp-ts/lib/Option";
   import FuncScoreboard from "../components/FuncScoreboard.svelte";
 
   let pl: ScoreboardProps[] = [];
