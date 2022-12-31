@@ -3,8 +3,8 @@
   import "../app.postcss";
 </script>
 
-<div class="h-screen overflow-clip">
-  <div class="bg-black h-[90vh] w-full mb-2 overflow-auto border border-green-500">
+<div class="h-screen overflow-clip justify-center">
+  <div class="bg-black h-[91vh] w-full mb-2 overflow-auto ">
     <slot class="bg-black" />
   </div>
   <Nav />
