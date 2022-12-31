@@ -9,6 +9,7 @@
   import * as O from "fp-ts/lib/Option.js";
   import FuncScoreboard from "../components/FuncScoreboard.svelte";
   import { load } from "./+page";
+  import { invalidate } from "$app/navigation";
 
   let pl: ScoreboardProps[] = [];
   export let data: {props: ScoreboardProps[]}
@@ -31,6 +32,7 @@
       .then((list) => {
         Promise.all(list).then((values) => {
           propsList = values;
+          invalidate(() => true)
         });
       });
   }
@@ -46,11 +48,11 @@
   }
   onMount(() => {
     const interval = setInterval(() => {
-      // setup();
-      load().then((data) => {
-        propsList = data.props;
-      });
-    }, 10000);
+      setup();
+      // load().then((data) => {
+      //   propsList = data.props;
+      // });
+    }, 1000);
 
     return () => {
       clearInterval(interval);

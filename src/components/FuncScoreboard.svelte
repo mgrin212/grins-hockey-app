@@ -5,7 +5,7 @@
   import LiveGame from "./LiveGame.svelte";
 
   export let scoreProps: GH.ScoreboardProps;
-  let goalPropList = scoreProps.goalProps;
+  $: goalPropList = scoreProps.goalProps;
 
   function getStartingTime(timeString: string): Date {
     return new Date(timeString);
