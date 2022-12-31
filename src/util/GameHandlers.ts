@@ -169,11 +169,7 @@ function currentPeriodOrdinal(game: O.Option<LineScoreLive>): O.Option<string> {
 function powerPlayTimeRemaining(
   game: O.Option<LineScoreLive>
 ): O.Option<number> {
-  return pipe(
-    game,
-    powerPlayInfo,
-    situationTimeRemaining
-  );
+  return pipe(game, powerPlayInfo, situationTimeRemaining);
 }
 
 function powerPlayInfo(game: O.Option<LineScoreLive>): O.Option<PowerPlayInfo> {
@@ -264,7 +260,8 @@ const homeNumSkaters = numSkaters(TeamType.HOME);
 const awayNumSkaters = numSkaters(TeamType.AWAY);
 
 export const scoreboardProps = (
-  game: O.Option<LineScoreLive>, goals: O.Option<DisplayGoal[]>,
+  game: O.Option<LineScoreLive>,
+  goals: O.Option<DisplayGoal[]>,
   dateTime: string
 ): ScoreboardProps => ({
   home: homeTeamName(game),
@@ -285,5 +282,5 @@ export const scoreboardProps = (
   homeID: homeID(game),
   awayID: awayID(game),
   goalProps: goals,
-  dateTime: dateTime
+  dateTime: dateTime,
 });

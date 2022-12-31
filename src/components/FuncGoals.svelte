@@ -9,7 +9,7 @@
 </script>
 
 <div
-  class=" w-[250px] h-[100px] border border-black dark:border-white rounded-lg mx-2 overflow-y-hidden"
+  class=" w-[250px] h-[100px] border border-white rounded-lg mx-2 overflow-y-hidden"
 >
   <div class="mt-1 ml-1">
     {display(props.team)}

@@ -8,8 +8,9 @@
   } from "../util/GameHandlers";
   import * as O from "fp-ts/lib/Option.js";
   import FuncScoreboard from "../components/FuncScoreboard.svelte";
-  import { load } from "./+page";
   import { invalidate } from "$app/navigation";
+  // import 'bootstrap/dist/css/bootstrap.min.css';
+  
 
   let pl: ScoreboardProps[] = [];
   export let data: {props: ScoreboardProps[]}
@@ -61,11 +62,11 @@
 </script>
 
 <div
-  class="flex flex-col justify-center items-start md:w-[390px] w-full mx-auto mt-2 bg-white dark:bg-black hideScroll"
+  class="flex flex-col justify-center items-start md:w-[390px] w-full mx-auto mt-2 bg-black hideScroll"
 >
   <!-- Start: Popular Blog Section -->
   <h2
-    class="font-bold text-2xl md:text-4xl tracking-tight mb-4 text-black dark:text-white"
+    class="font-bold text-2xl md:text-4xl tracking-tight mb-4 text-white"
   >
     Todays Games
   </h2>

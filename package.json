@@ -17,26 +17,22 @@
     "autoprefixer": "^10.4.13",
     "postcss": "^8.4.20",
     "postcss-load-config": "^4.0.1",
-    "svelte": "^3.54.0",
-    "svelte-adapter-firebase": "^0.14.4",
+    "svelte": "^3.55.0",
     "svelte-check": "^2.9.2",
     "svelte-preprocess": "^4.10.7",
+    "svelte-swipe": "^1.8.2",
     "tailwindcss": "^3.2.4",
     "tslib": "^2.4.1",
     "typescript": "^4.9.3",
     "vite": "^4.0.0"
   },
   "type": "module",
-  "workspaces": {
-    "nohoist": [
-      "@tailwindcss/forms",
-      "@tailwindcss/forms/**"
-    ]
-  },
   "dependencies": {
     "@tailwindcss/typography": "tailwindcss/typography",
-    "firebase": "^9.15.0",
+    "bootstrap": "^5.2.3",
     "fp-ts": "^2.13.1",
+    "sveltestrap": "^5.10.0",
+    "swiper": "^8.4.5",
     "tailwind-scrollbar-hide": "^1.1.7"
   }
 }

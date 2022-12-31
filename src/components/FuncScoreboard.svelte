@@ -34,7 +34,7 @@
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <div
-  class="p-2 border border-black flex flex-col dark:border-white text-black dark:text-white rounded w-full mb-1 mt-1 h-[130px]"
+  class="p-2 border  flex flex-col border-white text-white rounded w-full mb-1 mt-1 h-[130px]"
   on:click={() => (clicked = !clicked)}
 >
   <div class="flex flex-row justify-between">

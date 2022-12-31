@@ -7,7 +7,7 @@
 </script>
 
 <div
-  class="scrollbar-hide w-full overflow-x-scroll grid grid-flow-row text-black dark:text-white border border-black dark:border-white rounded-md"
+  class="scrollbar-hide w-full overflow-x-scroll grid grid-flow-row text-white border border-white rounded-md"
 >
   {#if goalProps}
     <div class="flex flex-row w-full">
